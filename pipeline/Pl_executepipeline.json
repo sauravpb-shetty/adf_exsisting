@@ -1,0 +1,41 @@
+{
+	"name": "Pl_executepipeline",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute Pipeline1",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "pl_parameterized",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true,
+					"parameters": {
+						"Input_filename": {
+							"value": "@pipeline().parameters.input_filename",
+							"type": "Expression"
+						},
+						"Outpurt_filename": {
+							"value": "@pipeline().parameters.Output_filename",
+							"type": "Expression"
+						}
+					}
+				}
+			}
+		],
+		"parameters": {
+			"input_filename": {
+				"type": "string"
+			},
+			"Output_filename": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"lastPublishTime": "2023-01-26T14:59:04Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}
